@@ -17,11 +17,13 @@ async function getData() {
             labels: labels,
             datasets: [
                 {
-                    label: "Temperature Outside",
+                    label: "Temperature inside",
                     fill: false,
                     borderColor: 'rgb(75, 192, 192)',
                     tension: 0.5,
-                    data: values
+                    data: values,
+                    hoverBackgroundColor:'rgb(75, 192, 192)',
+                    hoverBorderColor:'#357878'
                 }
             ]
         },
