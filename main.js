@@ -31,7 +31,7 @@ async function getData() {
             legend: { display: false },
             title: {
                 display: true,
-                text: 'Temperature outside'
+                text: 'Temperature inside'
             }
         }
     });
