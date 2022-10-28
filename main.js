@@ -2,15 +2,19 @@ getData();
 async function getData() {
     const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test.json');
     const data = await response.json();
+    
     console.log(data);
     length = data.length;
     console.log(length);
     labels = [];
     values = [];
+    
     for (i = 0; i < length; i++) {
+        
         labels.push(data[i].date_time);
         values.push(data[i].temp);
     }
+    labels.sort();
     new Chart(document.getElementById("bar-chart"), {
         type: 'line',
         data: {
