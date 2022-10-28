@@ -2,7 +2,7 @@ getData();
 async function getData() {
     const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test.json');
     const data = await response.json();
-    
+    data.sort((a, b) => new Date(a["date_time"].slice(0, -1)) - new Date(b["date_time"].slice(0, -1)));
     console.log(data);
     length = data.length;
     console.log(length);
@@ -15,6 +15,7 @@ async function getData() {
         values.push(data[i].temp);
     }
     labels.sort();
+    console.log(labels)
     new Chart(document.getElementById("bar-chart"), {
         type: 'line',
         data: {
