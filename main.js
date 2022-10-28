@@ -21,7 +21,7 @@ async function getData() {
             labels: labels,
             datasets: [
                 {
-                    label: "Temperature inside",
+                    label: "Temperature inside",                            
                     fill: false,
                     borderColor: 'rgb(75, 192, 192)',
                     tension: 0.5,
