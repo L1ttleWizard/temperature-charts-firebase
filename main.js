@@ -1,4 +1,5 @@
 getData();
+console.log('something');
 function removeNull(array) {
 return array.filter(x => x !== null)
 };
