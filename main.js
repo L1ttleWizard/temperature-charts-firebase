@@ -1,5 +1,5 @@
 getData();
-console.log('something');
+
  const removeEmptyOrNull = (obj) => {
       Object.keys(obj).forEach(k =>
         (obj[k] && typeof obj[k] === 'object') && removeEmptyOrNull(obj[k]) ||
