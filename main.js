@@ -1,12 +1,17 @@
 getData();
 console.log('something');
-function removeNull(array) {
-return array.filter(x => x !== null)
-};
+ const removeEmptyOrNull = (obj) => {
+      Object.keys(obj).forEach(k =>
+        (obj[k] && typeof obj[k] === 'object') && removeEmptyOrNull(obj[k]) ||
+        (!obj[k] && obj[k] !== undefined) && delete obj[k]
+      );
+      return obj;
+    };
 async function getData() {
     const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test.json');
     const data = await response.json();
-    removeNull(data);
+    
+    removeEmptyOrNull(data);
     data.sort((a, b) => new Date(a["date_time"].slice(0, -1)) - new Date(b["date_time"].slice(0, -1)));
     console.log(data);
     length = data.length;
