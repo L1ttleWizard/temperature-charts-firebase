@@ -13,12 +13,11 @@ async function getData() {
     const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test.json');
     const data = await response.json();
     console.log(data);
- console.log('data with null ');
-    removeEmptyOrNull(data);
- console.log('data without null ');
+ console.log('data without null down ');
+    data = data.filter(item => item !== null); 
     data.sort((a, b) => new Date(a["date_time"].slice(0, -1)) - new Date(b["date_time"].slice(0, -1)));
     console.log(data);
- console.log('data with sort');
+ console.log('data with sort up');
     length = data.length;
     console.log(length);
     labels = [];
