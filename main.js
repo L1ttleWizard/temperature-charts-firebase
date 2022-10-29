@@ -7,6 +7,7 @@ async function getData() {
         (obj[k] && typeof obj[k] === 'object') && removeEmptyOrNull(obj[k]) ||
         (!obj[k] && obj[k] !== undefined) && delete obj[k]
       );
+  
       return obj;
     };
     const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test.json');
@@ -14,7 +15,7 @@ async function getData() {
     console.log(data);
  console.log('data with null ');
     removeEmptyOrNull(data);
- console.log('data without null');
+ console.log('data without null ');
     data.sort((a, b) => new Date(a["date_time"].slice(0, -1)) - new Date(b["date_time"].slice(0, -1)));
     console.log(data);
  console.log('data with sort');
