@@ -17,7 +17,7 @@ async function getData() {
     data = data1.filter(item => item !== null); 
     data.sort((a, b) => new Date(a["date_time"].slice(0, -1)) - new Date(b["date_time"].slice(0, -1)));
     console.log(data);
- console.log('data with sort up  ');
+ console.log('data with sort up ');
     length = data.length;
     console.log(length);
     labels = [];
