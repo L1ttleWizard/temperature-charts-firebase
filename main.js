@@ -10,7 +10,7 @@ async function getData() {
   
       return obj;
     };
-    const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test.json');
+    const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test1.json');
     const data1 = await response.json();
     console.log(data1);
  console.log('data without null down');
