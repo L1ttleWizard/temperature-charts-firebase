@@ -11,7 +11,7 @@ async function getData() {
       return obj;
     };
     
-    const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test_inside.json');
+    const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test_outside.json');
 
     const data1 = await response.json();
     console.log(data1);
@@ -34,7 +34,7 @@ async function getData() {
     }
     labels.sort();
     console.log(labels)
-    new Chart(document.getElementById("bar-chart"), {
+    new Chart(document.getElementById("bar-chart1"), {
         type: 'line',
         data: {
             labels: labels,
@@ -54,7 +54,7 @@ async function getData() {
             legend: { display: false },
             title: {
                 display: true,
-                text: 'Temperature inside'
+                text: 'Temperature outside'
             }
         }
     });

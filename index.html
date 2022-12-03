@@ -10,12 +10,21 @@
 </head>
 
 <body>
-    <h1 style="color: green;">
-        Temperature Data
-    </h1>
-    <div style="width: auto; height:auto;">
-        <canvas id="bar-chart">
-        </canvas>
+    <div class="container" style="margin-right:5%; margin-left:5%;">
+        <h1 style="color: green;">
+            Temperature Data
+        </h1>
+        <div class="fc" style="display:flex; column-gap:5%;; justify-content:center; align-items:center;">
+        <div style="width: 100%; height:auto; border:5px black solid;">
+            <canvas id="bar-chart">
+            </canvas>
+        </div>
+        <div style="width: 100%; height:auto; border:5px solid black; margin-top:10px;">
+            <canvas id="bar-chart1">
+            </canvas>
+        </div>
     </div>
-    <script src="main.js"></script>
+        <script src="main.js"></script>
+        <script src="main1.js"></script>
+    </div>
 </body>
