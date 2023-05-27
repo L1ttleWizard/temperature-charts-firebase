@@ -1,5 +1,5 @@
 window.onload = ()=>{
-
+let current = document.getElementById("current-data");
 let select = document.getElementById("appo");
 let charts = document.querySelectorAll('.chart-item');
 chartss = Array.from(charts);

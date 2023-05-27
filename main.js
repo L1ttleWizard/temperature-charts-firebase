@@ -25,7 +25,8 @@ async function getData() {
     console.log(length);
     labels = dateTimes;
     values = temps;
-
+    let currentTemp = document.getElementById('current-data');
+    currentTemp.innerHTML = `${labels[labels.length - 1]}        ${values[values.length-1]}°C`;
     new Chart(document.getElementById("bar-chart"), {
         type: 'line',
         data: {
