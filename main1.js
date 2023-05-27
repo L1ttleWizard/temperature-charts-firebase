@@ -1,5 +1,6 @@
 getData();
 
+   
 
 async function getData() {
     const removeEmptyOrNull = (obj) => {
@@ -12,11 +13,13 @@ async function getData() {
     };
 
     const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test_free.json');
-
     const data1 = await response.json();
     const dateTimes = [];
     const temps = [];
-
+    const filteredData = data1.filter((item)=>{
+        return ('date_time' in  item && 'temp' in item);
+    });
+    
     for (const key in data1) {
         dateTimes.push(data1[key].date_time);
         temps.push(data1[key].temp);

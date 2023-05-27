@@ -13,7 +13,31 @@ async function getData() {
 
     const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test_bat.json');
 
-    const data1 = await response.json();
+    function removeEmptyElements(obj) {
+        Object.keys(obj).forEach((key) => {
+            if (obj[key] && typeof obj[key] === 'object') removeEmptyElements(obj[key]);
+            else if (obj[key] === undefined || obj[key] === null || obj[key] === '') delete obj[key];
+        });
+        return obj;
+    }
+
+    const validate = (obj) => {
+        obj = Array.from(obj);
+        obj = removeEmptyElements(obj);
+        let fill = new Array();
+        obj.forEach((thing) => {
+            if ('date_time' in thing && 'temp' in thing) {
+                fill.push(thing);
+            };
+        });
+        return fill;
+    }
+
+
+    let  data1 = await response.json();
+    data1 = validate(data1);
+    console.log(data1);
+
     const dateTimes = [];
     const temps = [];
 
@@ -31,20 +55,20 @@ async function getData() {
         type: 'line',
         data: {
             labels: labels,
-            datasets: [
-                {
-                    label: "Temperature battery",
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.5,
-                    data: values,
-                    hoverBackgroundColor: 'rgb(75, 192, 192)',
-                    hoverBorderColor: '#357878'
-                }
-            ]
+            datasets: [{
+                label: "Temperature battery",
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.5,
+                data: values,
+                hoverBackgroundColor: 'rgb(75, 192, 192)',
+                hoverBorderColor: '#357878'
+            }]
         },
         options: {
-            legend: { display: false },
+            legend: {
+                display: false
+            },
             title: {
                 display: true,
                 text: 'Temperature battery'
