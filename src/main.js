@@ -153,7 +153,7 @@ async function getData() {
     values = temps;
 
     let latestData = document.getElementById('current');
-    latestData.innerHTML = `Последнее измерение ${labels[labels.length - 1]}`
+    latestData.innerHTML = `Последнее измерение ${labels[labels.length - 1]} -  ${values[values.length-1]}°C`
     renderChart(labels, values);
 
 }
