@@ -1,3 +1,6 @@
+
+let dateRangeStart 
+let dateRangeEnd
 $('#appo').change(function() {
     if(this.value == "battery") {
         $('#battery').removeClass('hidden');
@@ -19,4 +22,5 @@ $('#appo').change(function() {
     }
     console.log(this.value);
 });
-console.log('HELLO')
+console.log('HELLO');
+
