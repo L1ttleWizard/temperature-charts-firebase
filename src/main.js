@@ -20,10 +20,12 @@ async function getData() {
         return obj;
     };
     const validate = (obj) => { //validates object to figure out if it contains both temp and date to avoid chart crash
-        obj = Array.from(obj);
-        obj = removeEmptyElements(obj);
+        news =new Array();
+        news = removeEmptyElements(news);
+        for (const key in obj){news.push(obj[key])};
+        
         let fill = new Array();
-        obj.forEach((thing) => {
+        news.forEach((thing) => {
             if ('date_time' in thing && 'temp' in thing) {
                 fill.push(thing);
             };
@@ -110,6 +112,7 @@ async function getData() {
     const response = await fetch('https://esp-32-demo-f34e1-default-rtdb.europe-west1.firebasedatabase.app/test_bat.json');
 
     let data1 = await response.json();
+    console.log(data1);
     data1 = validate(data1);
     console.log(data1);
     let dateTimes = [];
