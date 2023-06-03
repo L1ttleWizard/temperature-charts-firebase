@@ -19,9 +19,12 @@ async function getData() {
         });
         return obj;
     };
+    function removeNull(array) {
+        return array.filter(x => x !== null)
+        };
     const validate = (obj) => { //validates object to figure out if it contains both temp and date to avoid chart crash
         news =new Array();
-        news = removeEmptyElements(news);
+        obj = removeEmptyElements(obj);
         for (const key in obj){news.push(obj[key])};
         
         let fill = new Array();
